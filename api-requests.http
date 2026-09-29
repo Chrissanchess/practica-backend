@@ -1,0 +1,44 @@
+@baseUrl = http://localhost:8080/api/products
+
+### Crear producto (espera 201)
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "name": "Mouse",
+  "description": "Inalámbrico",
+  "price": 25.50,
+  "stock": 10
+}
+
+### Listar (espera 200)
+GET {{baseUrl}}
+
+### Obtener por id (espera 200)
+GET {{baseUrl}}/1
+
+### Actualizar (espera 200)
+PUT {{baseUrl}}/1
+Content-Type: application/json
+
+{
+  "name": "Mouse Pro",
+  "price": 30.00,
+  "stock": 8
+}
+
+### Eliminar (espera 204)
+DELETE {{baseUrl}}/1
+
+### Producto inexistente (espera 404)
+GET {{baseUrl}}/9999
+
+### Datos inválidos (espera 400 con detalle de errores)
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "name": "",
+  "price": -5,
+  "stock": -1
+}
