@@ -32,3 +32,13 @@ DELETE {{baseUrl}}/1
 
 ### Producto inexistente (espera 404)
 GET {{baseUrl}}/9999
+
+### Datos inválidos (espera 400 con detalle de errores)
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "name": "",
+  "price": -5,
+  "stock": -1
+}
